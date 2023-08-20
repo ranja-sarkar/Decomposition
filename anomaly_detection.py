@@ -22,7 +22,7 @@ def getDistanceByPoint(data, model):
         distance.at[i] = np.linalg.norm(Xa-Xb)
     return distance
 
-df = pd.read_csv("")
+df = pd.read_csv("ambient_temperature_system_failure.csv")
 print(df.info())
 
 outliers_fraction = 0.01 #1% of data is assumed to have outlying points
