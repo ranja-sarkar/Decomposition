@@ -11,9 +11,7 @@ from sklearn.decomposition import PCA
 from warnings import simplefilter
 simplefilter(action = 'ignore', category = FutureWarning)
 
-
 %matplotlib notebook
-
 
 # Return Series of distances between points and distances from the closest centroid
 def getDistanceByPoint(data, model):
@@ -24,7 +22,7 @@ def getDistanceByPoint(data, model):
         distance.at[i] = np.linalg.norm(Xa-Xb)
     return distance
 
-df = pd.read_csv("ranja-sarkar/mm/anomaly_detection.ipynb")
+df = pd.read_csv("")
 print(df.info())
 
 outliers_fraction = 0.01 #1% of data is assumed to have outlying points
@@ -72,7 +70,6 @@ number_of_outliers = int(outliers_fraction*len(distance))
 threshold = distance.nlargest(number_of_outliers).min()
 df['anomaly'] = (distance >= threshold).astype(int)
 
-#Plot
 fig, ax = plt.subplots()
 a = df.loc[df['anomaly'] == 1, ['time_epoch', 'value']]
 ax.plot(df['time_epoch'], df['value'], color='blue')
