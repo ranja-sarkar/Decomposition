@@ -1,17 +1,16 @@
+@author: ranja.sarkar@gmail.com
 
 import pandas as pd
 import numpy as np
-
 from sklearn import preprocessing
 from sklearn.decomposition import PCA
-#from sklearn.cluster import KMeans
+from sklearn.cluster import KMeans
 #from sklearn.ensemble import IsolationForest
 #from sklearn.svm import OneClassSVM
+import matplotlib.pyplot as plt
 
 from warnings import simplefilter
 simplefilter(action = 'ignore', category = FutureWarning)
-
-%matplotlib notebook
 
 # Return Series of distances between points and distances from the closest centroid
 def getDistanceByPoint(data, model):
@@ -23,9 +22,9 @@ def getDistanceByPoint(data, model):
     return distance
 
 df = pd.read_csv("ambient_temperature_system_failure.csv")
-print(df.info())
+#print(df.info())
 
-outliers_fraction = 0.01 #1% of data is assumed to have outlying points
+outliers_fraction = 0.01     #1% of data is assumed to have outlying points
 
 # Change timestamp to datetime
 df['timestamp'] = pd.to_datetime(df['timestamp'])
@@ -46,7 +45,7 @@ np_scaled = min_max_scaler.fit_transform(data)
 data = pd.DataFrame(np_scaled)
 
 # Reduce to 2 importants features, default 'auto' is too large
-pca = PCA(n_components=2)
+pca = PCA(n_components = 2)
 data = pca.fit_transform(data)
 
 # Standardize 2 new features
@@ -56,7 +55,7 @@ data = pd.DataFrame(np_scaled)
 
 # Calculate with different number of centroids to see the loss plot (elbow method)
 n_cluster = range(1, 20)
-kmeans = [KMeans(n_clusters=i).fit(data) for i in n_cluster]
+kmeans = [KMeans(n_clusters = i, random_state = 42).fit(data) for i in n_cluster]
 
 # Choose 15 centroids arbitrarily and add these data to the central dataframe
 df['cluster'] = kmeans[14].predict(data)
