@@ -15,8 +15,9 @@ Learn more about PCA from **Chapter 3** of my book "A handbook of mathematical m
 
 Buy at Amazon: https://a.co/d/2JY2rdj
 
-Among other anomaly detection methods in an unsupervised setting, there is Isolation Forest. Find a demo of this algorithm on time-series data here:
- https://www.kaggle.com/code/ranja7/timeseries-anomaly-detection-isolation-forest
+Among other anomaly detection methods in an unsupervised setting, there is Isolation Forest. Find a demo of this algorithm applied on time-series data here:
+
+https://www.kaggle.com/code/ranja7/timeseries-anomaly-detection-isolation-forest
 
 In general, evaluating an unsupervised learning method is hard. Yet, a few known metrics have been discussed here: 
 https://ranjas.substack.com/p/exploring-metrics-in-unsupervised
