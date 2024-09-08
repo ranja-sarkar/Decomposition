@@ -22,6 +22,7 @@ In general, evaluating an unsupervised learning method is hard. Yet, a few known
 https://ranjas.substack.com/p/exploring-metrics-in-unsupervised
 
 Apart from PCA, in matrix factorization problems we come across methods like Independent Component Analysis (ICA), factor analysis. An overview of all of them can be found at scikit-learn's page: 
+
 https://scikit-learn.org/stable/modules/decomposition.html
 
 
